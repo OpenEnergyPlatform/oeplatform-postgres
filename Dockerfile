@@ -6,8 +6,6 @@ RUN apt-get update && \
     postgresql-plpython3-9.6 postgresql-plpython-9.6 \
     && rm -rf /var/lib/apt/lists/*
 
-COPY * /
-
 COPY init.sh /docker-entrypoint-initdb.d/init.sh
 
 ENV POSTGRES_USER postgres

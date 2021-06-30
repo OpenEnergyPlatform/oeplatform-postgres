@@ -2,13 +2,10 @@
 
 ## Usage
 
-In this folder:
-`docker build -t oep_postgres .`
-`docker run -p "5432:5432" oep_postgres`
-
-In your project folder:
-`OEP_DB_USER=postgres OEP_DB_PASSWORD=postgres LOCAL_DB_USER=postgres LOCAL_DB_PASSWORD=postgres python manage.py runserver`
-`OEP_DB_USER=postgres OEP_DB_PASSWORD=postgres LOCAL_DB_USER=postgres LOCAL_DB_PASSWORD=postgres python manage.py alembic `
+```
+docker run -v "$(pwd)/oeplatform_data:/var/lib/postgresql/data" -p "5432:5432" ghcr.io/openenergyplatform/oeplatform-postgres:latest
+```
+It starts a already built docker container, exposes port 5432 to your local machine and creates a data directory in a `oeplatform_data` folder at your current path.
 
 ## What does this?
 
@@ -21,8 +18,8 @@ Before you can get started, we need to migrate the oedb migrations.
 All relevant settings are stored in `/oeplatform/securitysettings.py`, which is normally created by using the `securitysettings.py.default`.
 We included the usage of environment variables to archieve configuration options. You need to set the following configuration options:
 
-+ `OEP_DB_USER=postgres`
-+ `OEP_DB_PASSWORD=postgres`
++ `OEP_DJANGO_USER=postgres`
++ `OEP_DB_PW=postgres`
 + `LOCAL_DB_USER=postgres`
 + `LOCAL_DB_PASSWORD=postgres`
 
