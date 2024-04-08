@@ -1,9 +1,9 @@
-FROM postgres:9.6
+FROM postgres
 
 RUN apt-get update && \
-	apt-get install -y postgresql-contrib-9.6 \
-	postgresql-9.6-postgis-2.3 \
-    postgresql-plpython3-9.6 postgresql-plpython-9.6 \
+	apt-get install -y postgresql-contrib \
+	postgresql-postgis \
+    postgresql-plpython3 postgresql-plpython \
     && rm -rf /var/lib/apt/lists/*
 
 COPY init.sh /docker-entrypoint-initdb.d/init.sh
