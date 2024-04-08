@@ -1,9 +1,10 @@
-FROM postgres
+FROM postgres:14
 
 RUN apt-get update && \
 	apt-get install -y postgresql-contrib \
-	postgresql-postgis \
-    postgresql-plpython3 postgresql-plpython \
+    postgresql-plpython3-14 \
+    binutils \ libproj-dev \ gdal-bin \
+	postgresql-14-postgis-3 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY init.sh /docker-entrypoint-initdb.d/init.sh
