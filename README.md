@@ -39,6 +39,6 @@ We created two databases:
 ## How does this work?
 
 1. We inherit from the Postgres container in version 9.6.
-2. In addition we install the packages `postgresql-contrib-9.6 postgresql-9.6-postgis-2.3 postgresql-plpython3-9.6 postgresql-plpython-9.6 `.
+2. In addition we install the packages `apt-get update apt-get install -y postgresql-contrib postgresql-plpython3-14 postgresql-14-postgis-3 `.
 4. We copy the init script to a place where Postgres finds it and executes it after starting the database.
 5. The database is ready to use.
